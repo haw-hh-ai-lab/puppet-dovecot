@@ -1,3 +1,22 @@
+#
+# activate ldap based authentication in a dovecot server
+#
+# Parameter:
+#  ldap_hosts:             space separated list of hosts. host:port is allowed
+#  ldap_base:              search base for ldap lookups
+#  ldap_dn:                DN to bind to for authentication, when doing password lookups.
+#                          Don't set if using auth_bind
+#  ldap_dnpass:            Password to authenticate to DN for password lookups
+#  ldap_auth_bind_userdn:  template for dn search for auth_bind
+#  ldap_auth_bind:         (no/yes) activate auth_bind?
+#  ldap_scope:             search scope for dn lookups
+#  ldap_debug_level:       debug level
+#  ldap_user_filter:       filter for user objects
+#  ldap_pass_filter:       filter for password objects
+#  ldap_pass_attrs:
+#  ldap_iterate_attrs:
+#  ldap_iterate_filter:
+#
 class dovecot::ldap (
   $ldap_hosts            = 'ldap.example.org:389',
   $ldap_dn               = 'cn=vmail,cn=users,dc=example,dc=org',
