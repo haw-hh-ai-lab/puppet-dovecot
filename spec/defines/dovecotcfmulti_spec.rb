@@ -25,7 +25,7 @@ describe 'dovecot::config::dovecotmulti', :tpye => :define do
   let(:params) { {:changes => [ 'set foo \'bar\'', 'rm bar' ], } }
   
   it 'must not have an augeas lens file' do
-      should not contain_file('/usr/share/augeas/lenses/dist/build.aug')
+      should_not contain_file('/usr/share/augeas/lenses/dist/build.aug')
   end
 end
 
@@ -45,6 +45,6 @@ describe 'dovecot::config::dovecotmulti', :tpye => :define do
   let(:params) { {:changes => [ 'set foo \'bar\'', 'rm bar' ], } }
   
   it 'must not have an augeas lens file' do
-      should contain_file('/usr/share/augeas/lenses/dist/build.aug')
+      should_not contain_file('/usr/share/augeas/lenses/dist/build.aug')
   end
 end
