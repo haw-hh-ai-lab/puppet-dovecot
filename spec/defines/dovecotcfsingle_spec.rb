@@ -51,7 +51,7 @@ describe 'dovecot::config::dovecotsingle', :tpye => :define do
   let(:title) { 'foo' }
   let(:params) { {:ensure => 'present', :value => 'foo' } }
   
-  it 'must not have an augeas lens file' do
+  it 'must have an augeas lens file' do
       should contain_file('/usr/share/augeas/lenses/dist/build.aug')
   end
 end
