@@ -3,7 +3,12 @@ define dovecot::config::dovecotcfmulti(
   $changes=undef,
   $onlyif=undef,
 ) {
-  require dovecot::config::augeas
+
+  # changes in lenses are a sub set of changes provided by OS release
+  if !(($::operatingsystem == 'Ubuntu') and ($::operatingsystemrelease >= '14.04')) {
+    require dovecot::config::augeas
+  }
+
   Augeas {
     context => "/files/etc/dovecot/${config_file}",
     notify  => Service['dovecot'],
@@ -14,5 +19,6 @@ define dovecot::config::dovecotcfmulti(
     changes => $changes,
     onlyif  => $onlyif,
   }
+
 }
 
